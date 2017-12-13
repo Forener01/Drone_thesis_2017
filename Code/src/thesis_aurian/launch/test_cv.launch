@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!-- This is a sample launch file, please change it based on your needs -->
+<launch>
+<!-- IPv4 address of your drone -->
+<arg name="ip" default="192.168.1.1"/>
+<!-- Ultrasound frequency (7 or 8). -->
+<arg name="freq" default="8"/>
+<arg name="ns" value="ardrone/front" />
+
+<node name="image_flow" pkg="thesis_aurian" type="image_flow" output="screen">
+</node>
+
+<group ns="ardrone/front">
+  <node name="image_proc" pkg="image_proc" type="image_proc" output="screen" >
+  </node> 
+</group>
+
+<node name="image_view_redfilt" pkg="image_view" type="image_view" respawn="false" output="screen">
+<remap from="image" to="processed_image" />
+</node>
+
+<node name="image_view_calib" pkg="image_view" type="image_view" respawn="false" output="screen">
+<remap from="image" to="ardrone/front/image_rect_color" />
+</node>
+
+</launch>
