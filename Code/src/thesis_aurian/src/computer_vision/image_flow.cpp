@@ -16,7 +16,8 @@ ImageFlow::ImageFlow() {
   // Image parameters
   img_width = 640;
   img_height = 360;
-  door_ratio = 0.4637;          // --> W/H = 93.2/201
+  door_ratio = 0.425;           // --> W/H = 93.2/201 = real world
+                                // --> W/H = 104/253 = cam world
   door_thickness_ratio = 0.015; // --> T/H = 3/201
   keypressed = false;
 
@@ -27,7 +28,7 @@ ImageFlow::ImageFlow() {
   threshold = 71;
   minLength = 32;
   maxLineGap = 11;
-  thickness = 6;
+  thickness = 1;
 }
 
 // void ImageFlow::imageCb(const sensor_msgs::Image &img_msg) {
@@ -106,7 +107,9 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   */
 
   cv::inRange(hsv_img, cv::Scalar(0, 0, 0), cv::Scalar(0, 0, 255), redfilt_sub);
-  redfilt_final = redfilt_du_img - redfilt_sub;
+  cv::inRange(hsv_img, cv::Scalar(0, 75, 30), cv::Scalar(15, 145, 50),
+              redfilt_sub2);
+  redfilt_final = redfilt_du_img - redfilt_sub - redfilt_sub2;
   /* to withdraw outside (hall)
   60 11 7 -> 29 28 17
   0 0 3 -> 0 0 7.65
@@ -193,21 +196,23 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
    **********************************/
 
   if (keypressed) {
-    // if (k == 'R' || k == 'r') {
-    //   rho += 1;
-    //   ROS_INFO("rho = %f", rho);
-    // } else if (k == 'E' || k == 'e') {
-    //   rho -= 1;
-    //   ROS_INFO("rho = %f", rho);
-    // }
-    //
-    // if (k == 'D' || k == 'd') {
-    //   deg += 5;
-    //   ROS_INFO("deg = %i", deg);
-    // } else if (k == 'S' || k == 's') {
-    //   deg -= 5;
-    //   ROS_INFO("deg = %i", deg);
-    // }
+    if (k == 'N' || k == 'n') {
+      door_ratio += 0.005;
+      ROS_INFO("door_ratio = %f", door_ratio);
+    } else if (k == 'B' || k == 'b') {
+      door_ratio -= 0.005;
+      ROS_INFO("door_ratio = %f", door_ratio);
+    }
+
+    if (k == 'D' || k == 'd') {
+      space_tol += 0.05;
+      //   deg += 5;
+      //   ROS_INFO("deg = %i", deg);
+    } else if (k == 'S' || k == 's') {
+      space_tol -= 0.05;
+      //   deg -= 5;
+      //   ROS_INFO("deg = %i", deg);
+    }
     //
     // if (k == 'T' || k == 't') {
     //   threshold += 5;
@@ -230,21 +235,21 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
     }
     //
     if (k == 'T' || k == 't') {
-      img_tol += 0.02;
+      door_tol += 0.02;
       //   maxLineGap += 1;
       //   ROS_INFO("maxLineGap = %f", maxLineGap);
     } else if (k == 'R' || k == 'r') {
-      img_tol -= 0.02;
+      door_tol -= 0.02;
       //   maxLineGap -= 1;
       //   ROS_INFO("maxLineGap = %f", maxLineGap);
     }
 
     if (k == 'E' || k == 'e') {
-      img_error += 0.5;
+      thickness_error += 0.5;
       //   thickness += 1;
       //   ROS_INFO("thickness = %i", thickness);
     } else if (k == 'Z' || k == 'z') {
-      img_error -= 0.5;
+      thickness_error -= 0.5;
       //   thickness -= 1;
       //   ROS_INFO("thickness = %i", thickness);
     }
@@ -303,8 +308,9 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
     // maxLineGap = 1;
     // thickness = 1;
     // Matching parameters
-    img_error = 3.0;
-    img_tol = 0.3;
+    thickness_error = 1.0;
+    door_tol = 0.36;
+    space_tol = 0.92;
   }
 
   // Set1: threshold = 101; minLength = 66; maxLineGap = 12; thickness rho deg =
@@ -361,6 +367,7 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   cvtColor(gradBGR_filt, gradGRAY_filt, COLOR_BGR2GRAY);
   cv::threshold(gradGRAY_filt, RealBinaryDoor, 100, 255, cv::THRESH_BINARY);
   imshow("RealBinaryDoor", RealBinaryDoor);
+
   /**********************************
    ********* MATCHING STEP **********
    **********************************/
@@ -371,12 +378,13 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
       CV_AA - antialiased line.
   */
 
-  scale_factor = 0.75;
-  height_zoom = scale_factor * img_height; // 1 = door takes the full height
-  door_thickness = door_thickness_ratio * height_zoom * img_error;
-  init_xshift = 320 - (door_ratio * height_zoom / 2 + door_thickness);
+  scale_factor = 0.714; // Out: 0.714; // 1 = door takes the full height
+  height_zoom = scale_factor * img_height;
+  door_thickness = door_thickness_ratio * height_zoom * thickness_error;
+  init_xshift = 140 - (door_ratio * height_zoom / 2 + 3 * door_thickness);
   xshifts = 2 * init_xshift;
-  yshifts = 10;
+  ROS_INFO("xshifts %i", xshifts);
+  yshifts = 5;
 
   xx1 = img_width / 2 - door_ratio * height_zoom / 2 - door_thickness / 2 - 1 +
         init_xshift;
@@ -386,14 +394,36 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
         init_xshift;
   yy2 = yy1 - height_zoom - door_thickness / 2;
   yy2_init = yy2;
-  // Mat Background(grad_filt.rows, grad_filt.cols, CV_8UC3, Scalar(0, 0, 0));
-  // rectangle(Background, Point(xx1, yy1), Point(xx2, yy2), Scalar(255, 255,
+
+  // Coordinates for lateral space
+  xx1rec1 = xx2 + door_thickness / 2;
+  xx2rec1 = xx1rec1 + 2 * door_thickness;
+  yy1rec1 = yy1 - door_thickness / 2;
+  yy2rec1 = yy2 - 5 * door_thickness / 2;
+
+  // Coordinates for superior space
+  xx1rec2 = xx1 + door_thickness / 2;
+  xx2rec2 = xx2 + door_thickness / 2;
+  yy1rec2 = yy2 - door_thickness / 2;
+  yy2rec2 = yy1rec2 - 2 * door_thickness;
+
+  // Coordinates for interior space
+  xx1rec3 = xx1 + door_thickness / 2;
+  xx2rec3 = xx2 - door_thickness / 2;
+  yy1rec3 = yy1 + door_thickness / 2;
+  yy2rec3 = yy1rec3 - 0.1866 * height_zoom;
+  // Mat Background(grad_filt.rows, grad_filt.cols, CV_8UC3, Scalar(0,
+  // 0,
+  // 0));
+  // rectangle(Background, Point(xx1, yy1), Point(xx2, yy2), Scalar(255,
+  // 255,
   // 255),
   //           door_thickness, 8);
   //
   // Conversion into binary door reference image
   // cvtColor(Background, BackgroundGRAY, COLOR_BGR2GRAY);
-  // cv::threshold(BackgroundGRAY, RefBinaryDoor, 100, 255, cv::THRESH_BINARY);
+  // cv::threshold(BackgroundGRAY, RefBinaryDoor, 100, 255,
+  // cv::THRESH_BINARY);
 
   Mat RefBinaryDoor(RealBinaryDoor.rows, RealBinaryDoor.cols, CV_8UC1,
                     Scalar(0));
@@ -402,19 +432,41 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   line(RefBinaryDoor, Point(xx1, yy1), Point(xx2, yy1), Scalar(0),
        door_thickness, 8);
 
-  // Mat *RefBinaryDoorPtr = &RefBinaryDoor;
+  refDoorCount = sum(RefBinaryDoor)[0] / 255;
+  realDoorCount = sum(RealBinaryDoor)[0] / 255;
+  multiply(RealBinaryDoor / 255, RefBinaryDoor / 255, doorComp);
+  matchDoorCount = sum(doorComp)[0];
+  matchDoor_perc = (double)matchDoorCount / (double)refDoorCount;
 
-  refCount = sum(RefBinaryDoor)[0] / 255;
-  realCount = sum(RealBinaryDoor)[0] / 255;
-  multiply(RealBinaryDoor, RefBinaryDoor, doorComp);
-  matchCount = sum(doorComp)[0] / 255;
-  match_perc = (double)matchCount / (double)refCount;
+  Mat RefSpace(RealBinaryDoor.rows, RealBinaryDoor.cols, CV_8UC1, Scalar(0));
+  rectangle(RefSpace, Point(xx1rec1, yy1rec1), Point(xx2rec1, yy2rec1),
+            Scalar(255), CV_FILLED, 8);
+  rectangle(RefSpace, Point(xx1rec2, yy1rec2), Point(xx2rec2, yy2rec2),
+            Scalar(255), CV_FILLED, 8);
+  rectangle(RefSpace, Point(xx1rec3, yy1rec3), Point(xx2rec3, yy2rec3),
+            Scalar(255), CV_FILLED, 8);
 
-  ROS_INFO("before: xx1 %i", xx1);
-  ROS_INFO("before: Refcount %i", refCount);
-  ROS_INFO("before: Realcount %i", realCount);
-  ROS_INFO("before: MatchCount %i", matchCount);
-  ROS_INFO("before: Matchperc %f", match_perc);
+  cv::threshold(RealBinaryDoor, InvRealBinaryDoor, 100, 255, THRESH_BINARY_INV);
+
+  refSpaceCount = sum(RefSpace)[0] / 255;
+  realSpaceCount = sum(InvRealBinaryDoor)[0] / 255;
+  multiply(InvRealBinaryDoor / 255, RefSpace / 255, spaceComp);
+  matchSpaceCount = sum(spaceComp)[0];
+  matchSpace_perc = (double)matchSpaceCount / (double)refSpaceCount;
+
+  // ROS_INFO("before: RefDoor count %i", refDoorCount);
+  // ROS_INFO("before: RealDoor count %i", realDoorCount);
+  // ROS_INFO("before: MatchDoor Count %i", matchDoorCount);
+  ROS_INFO("------------------------------------");
+  ROS_INFO("before: Door perc %f", matchDoor_perc);
+  ROS_INFO("before: Space perc %f", matchSpace_perc);
+  ROS_INFO("------------------------------------");
+  // ROS_INFO("------------------------------------");
+  // ROS_INFO("before: RefSpace count %i", refSpaceCount);
+  // ROS_INFO("before: RealSpace count %i", realSpaceCount);
+  // ROS_INFO("before: MatchSpace Count %i", matchSpaceCount);
+  // ROS_INFO("------------------------------------");
+  // ROS_INFO("before: MatchSpace perc %f", matchSpace_perc);
 
   //  Matching decision
   for (my_index = 0; my_index < xshifts; my_index++) {
@@ -422,23 +474,57 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
     xx2 -= 1;
     yy1 = yy1_init;
     yy2 = yy2_init;
+    // Coordinates for lateral space
+    xx1rec1 = xx2 + door_thickness / 2;
+    xx2rec1 = xx1rec1 + 2 * door_thickness;
+    yy1rec1 = yy1 - door_thickness / 2;
+    yy2rec1 = yy2 - 5 * door_thickness / 2;
+
+    // Coordinates for superior space
+    xx1rec2 = xx1 + door_thickness / 2;
+    xx2rec2 = xx2 + door_thickness / 2;
+    yy1rec2 = yy2 - door_thickness / 2;
+    yy2rec2 = yy1rec2 - 2 * door_thickness;
+
+    // Coordinates for interior space
+    xx1rec3 = xx1 + door_thickness / 2;
+    xx2rec3 = xx2 - door_thickness / 2;
+    yy1rec3 = yy1 + door_thickness / 2;
+    yy2rec3 = yy1rec3 - 0.1866 * height_zoom;
+
     for (my_J_index = 0; my_J_index < yshifts; my_J_index++) {
       yy1 -= 1;
       yy2 -= 1;
 
+      // Door comparison
       RefBinaryDoor.operator=(Scalar(0)); // Draw a new shifted reference door
       rectangle(RefBinaryDoor, Point(xx1, yy1), Point(xx2, yy2), Scalar(255),
                 door_thickness, 8);
       line(RefBinaryDoor, Point(xx1, yy1), Point(xx2, yy1), Scalar(0),
            door_thickness, 8);
 
-      refCount = sum(RefBinaryDoor)[0] / 255;
-      realCount = sum(RealBinaryDoor)[0] / 255;
-      multiply(RealBinaryDoor, RefBinaryDoor, doorComp);
-      matchCount = sum(doorComp)[0] / 255;
-      match_perc = (double)matchCount / (double)refCount;
+      refDoorCount = sum(RefBinaryDoor)[0] / 255;
+      realDoorCount = sum(RealBinaryDoor)[0] / 255;
+      multiply(RealBinaryDoor / 255, RefBinaryDoor / 255, doorComp);
+      matchDoorCount = sum(doorComp)[0];
+      matchDoor_perc = (double)matchDoorCount / (double)refDoorCount;
 
-      if (match_perc >= img_tol) {
+      // Open space comparison
+      RefSpace.operator=(Scalar(0));
+      rectangle(RefSpace, Point(xx1rec1, yy1rec1), Point(xx2rec1, yy2rec1),
+                Scalar(255), CV_FILLED, 8);
+      rectangle(RefSpace, Point(xx1rec2, yy1rec2), Point(xx2rec2, yy2rec2),
+                Scalar(255), CV_FILLED, 8);
+      rectangle(RefSpace, Point(xx1rec3, yy1rec3), Point(xx2rec3, yy2rec3),
+                Scalar(255), CV_FILLED, 8);
+
+      refSpaceCount = sum(RefSpace)[0] / 255;
+      realSpaceCount = sum(InvRealBinaryDoor)[0] / 255;
+      multiply(InvRealBinaryDoor / 255, RefSpace / 255, spaceComp);
+      matchSpaceCount = sum(spaceComp)[0];
+      matchSpace_perc = (double)matchSpaceCount / (double)refSpaceCount;
+
+      if ((matchDoor_perc >= door_tol) && (matchSpace_perc >= space_tol)) {
         // ROS_INFO("------------------------------------");
         // ROS_INFO("DETECTED: Matchperc %f", match_perc);
         // ROS_INFO("------------------------------------");
@@ -447,30 +533,46 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
       }
     }
 
-    if (match_perc >= img_tol) {
+    if ((matchDoor_perc >= door_tol) && (matchSpace_perc >= space_tol)) {
       ROS_INFO("------------------------------------");
-      ROS_INFO("DETECTED: Matchperc %f", match_perc);
+      ROS_INFO("DETECTED: Door perc %f", matchDoor_perc);
+      ROS_INFO("DETECTED: Space perc %f", matchSpace_perc);
       ROS_INFO("------------------------------------");
       //   detection_pub.publish(detected);
       break;
     }
   }
 
-  ROS_INFO("after: yy1 %i", yy1);
-  ROS_INFO("after: xx1 %i", xx1);
-  ROS_INFO("Ind %i", my_index);
-  ROS_INFO("after: Matchperc %f", match_perc);
-  ROS_INFO("after: Refcount %i", refCount);
-  ROS_INFO("after: Realcount %i", realCount);
-  ROS_INFO("after: MatchCount %i", matchCount);
+  // ROS_INFO("after: yy1 %i", yy1);
+  // ROS_INFO("after: xx1 %i", xx1);
+  ROS_INFO("Index %i", my_index);
+  // ROS_INFO("after: RefDoor count %i", refDoorCount);
+  // ROS_INFO("after: RealDoor count %i", realDoorCount);
+  // ROS_INFO("after: MatchDoor Count %i", matchDoorCount);
   ROS_INFO("------------------------------------");
-  ROS_INFO("Img_error: %f", img_error);
-  ROS_INFO("Img_tol: %f", img_tol);
+  ROS_INFO("after: Door perc %f", matchDoor_perc);
+  ROS_INFO("after: Space perc %f", matchSpace_perc);
+  ROS_INFO("------------------------------------");
+  // ROS_INFO("------------------------------------");
+  // ROS_INFO("after: RefSpace count %i", refSpaceCount);
+  // ROS_INFO("after: RealSpace count %i", realSpaceCount);
+  // ROS_INFO("after: MatchSpace Count %i", matchSpaceCount);
+  // ROS_INFO("------------------------------------");
+  // ROS_INFO("after: MatchSpace perc %f", matchSpace_perc);
 
-  imshow("Match rectangle", doorComp);
-  // imshow("Reference door rectangle", Background);
-  // imshow("Reference GRAY door rectangle", BackgroundGRAY);
+  ROS_INFO("------------------------------------");
+  ROS_INFO("Thickness_error: %f", thickness_error);
+  ROS_INFO("Door_tol: %f", door_tol);
+  ROS_INFO("Space_tol: %f", space_tol);
+  //
+  imshow("Match door", doorComp * 255);
+  imshow("Match space", spaceComp * 255);
+  imshow("Ref space", RefSpace);
+  // // imshow("Reference door rectangle", Background);
+  // // imshow("Reference GRAY door rectangle", BackgroundGRAY);
   imshow("Reference BIN door rectangle", RefBinaryDoor);
+
+  // Sampling HSV values for the door
 
   k = waitKey(0);
   keypressed = true;

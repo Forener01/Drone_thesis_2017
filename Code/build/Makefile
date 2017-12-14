@@ -1346,6 +1346,19 @@ controller_2016/fast:
 .PHONY : controller_2016/fast
 
 #=============================================================================
+# Target rules for targets named demo
+
+# Build rule for target.
+demo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 demo
+.PHONY : demo
+
+# fast build rule for target.
+demo/fast:
+	$(MAKE) -f thesis_aurian/CMakeFiles/demo.dir/build.make thesis_aurian/CMakeFiles/demo.dir/build
+.PHONY : demo/fast
+
+#=============================================================================
 # Target rules for targets named image_flow
 
 # Build rule for target.
@@ -2009,6 +2022,7 @@ help:
 	@echo "... uuid_msgs_generate_messages_lisp"
 	@echo "... uuid_msgs_generate_messages_py"
 	@echo "... controller_2016"
+	@echo "... demo"
 	@echo "... image_flow"
 	@echo "... square_vel"
 	@echo "... test_controller"

@@ -38,15 +38,27 @@ private:
       redfilt_dark_img2, redfilt_lu_img, redfilt_du_img, redfilt_ldu_img,
       redfilt_img, hsv_img, gray_img, redfilt_sub, redfilt_final, hough_img,
       gradBGR, gradBGR_filt, gradGRAY_filt, gradBGR_filt2, grad_canny,
-      gradBGR_canny, nofilt_img, RealBinaryDoor, BackgroundGRAY, doorComp;
+      gradBGR_canny, nofilt_img, RealBinaryDoor, BackgroundGRAY, doorComp,
+      InvRealBinaryDoor, spaceComp, testComp, hsv_filt, mergedDoorComp,
+      doorCompHSV, mergedDoorComp_temp, HSVDoorComp, hsv_BGRfilt, redfilt_sub2;
 
   char k;
 
   double rho, theta, minLength, maxLineGap, door_ratio, door_thickness_ratio,
-      scale_factor, res, img_error, img_tol, match_perc;
+      scale_factor, res, thickness_error, door_tol, space_tol, matchDoor_perc,
+      matchSpace_perc;
+
   int threshold, deg, thickness, xx1, yy1, xx2, yy2, pixel_incr, img_width,
-      img_height, height_zoom, door_thickness, refCount, matchCount, xshifts,
-      yshifts, realCount, init_xshift, my_index, my_J_index, yy1_init, yy2_init;
+      img_height, height_zoom, door_thickness, xshifts, yshifts, init_xshift,
+      my_index, my_J_index, yy1_init, yy2_init;
+
+  int refDoorCount, realDoorCount, matchDoorCount;
+  int refSpaceCount, realSpaceCount, matchSpaceCount;
+
+  int xx1rec1, yy1rec1, xx2rec1, yy2rec1;
+  int xx1rec2, yy1rec2, xx2rec2, yy2rec2;
+  int xx1rec3, yy1rec3, xx2rec3, yy2rec3;
+
   bool keypressed;
 };
 

@@ -58,7 +58,8 @@ OLD
     - Affiner structure pages mémoire
 
 -----------
-13h-
+12h30-
+pause 45 min
 
 # Planning
 4/12: transfert image + calibration   !!! OK !!!
@@ -150,6 +151,11 @@ Confimé !!
 - Présenter les pires cas et les cas idéaux pour ouverture porte
 
 - penser à faire une timing analysis
+
+- parler de l'optimisation du temps d'exécution vs allocation mémoire matrices 
+opencv
+
+- parler de fréq scintillation néon influe sur mesures
 
 # Matching step sources
 - Hough lines https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/hough_lines/hough_lines.html

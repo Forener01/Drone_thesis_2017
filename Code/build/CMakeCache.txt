@@ -298,6 +298,9 @@ ardrone_velocity_SOURCE_DIR:STATIC=/home/laboinmastudent/Bureau/Drone_thesis_201
 //Value Computed by CMake
 ardrone_velocity_ekf_BINARY_DIR:STATIC=/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ardrone_velocity_ekf
 
+//The directory containing a CMake configuration file for ardrone_velocity_ekf.
+ardrone_velocity_ekf_DIR:PATH=/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/share/ardrone_velocity_ekf/cmake
+
 //Value Computed by CMake
 ardrone_velocity_ekf_SOURCE_DIR:STATIC=/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf
 

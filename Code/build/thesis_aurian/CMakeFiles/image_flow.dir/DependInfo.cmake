@@ -24,6 +24,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include"
   "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/include"
   "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity/include"
+  "/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include"
   "/opt/ros/indigo/include"
   "/usr/include/opencv"
   )

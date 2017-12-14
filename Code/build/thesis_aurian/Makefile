@@ -164,6 +164,20 @@ controller_2016/fast:
 .PHONY : controller_2016/fast
 
 # Convenience name for target.
+thesis_aurian/CMakeFiles/demo.dir/rule:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/demo.dir/rule
+.PHONY : thesis_aurian/CMakeFiles/demo.dir/rule
+
+# Convenience name for target.
+demo: thesis_aurian/CMakeFiles/demo.dir/rule
+.PHONY : demo
+
+# fast build rule for target.
+demo/fast:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/demo.dir/build.make thesis_aurian/CMakeFiles/demo.dir/build
+.PHONY : demo/fast
+
+# Convenience name for target.
 thesis_aurian/CMakeFiles/image_flow.dir/rule:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f CMakeFiles/Makefile2 thesis_aurian/CMakeFiles/image_flow.dir/rule
 .PHONY : thesis_aurian/CMakeFiles/image_flow.dir/rule
@@ -315,6 +329,30 @@ src/controller/test_controller.cpp.s:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/test_controller.dir/build.make thesis_aurian/CMakeFiles/test_controller.dir/src/controller/test_controller.cpp.s
 .PHONY : src/controller/test_controller.cpp.s
 
+src/demo.o: src/demo.cpp.o
+.PHONY : src/demo.o
+
+# target to build an object file
+src/demo.cpp.o:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/demo.dir/build.make thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o
+.PHONY : src/demo.cpp.o
+
+src/demo.i: src/demo.cpp.i
+.PHONY : src/demo.i
+
+# target to preprocess a source file
+src/demo.cpp.i:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/demo.dir/build.make thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.i
+.PHONY : src/demo.cpp.i
+
+src/demo.s: src/demo.cpp.s
+.PHONY : src/demo.s
+
+# target to generate assembly for a file
+src/demo.cpp.s:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/demo.dir/build.make thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.s
+.PHONY : src/demo.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -322,6 +360,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... controller_2016"
+	@echo "... demo"
 	@echo "... edit_cache"
 	@echo "... image_flow"
 	@echo "... install"
@@ -345,6 +384,9 @@ help:
 	@echo "... src/controller/test_controller.o"
 	@echo "... src/controller/test_controller.i"
 	@echo "... src/controller/test_controller.s"
+	@echo "... src/demo.o"
+	@echo "... src/demo.i"
+	@echo "... src/demo.s"
 .PHONY : help
 
 

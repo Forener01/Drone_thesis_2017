@@ -153,7 +153,7 @@ foreach(t ${thesis_aurian_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "roscpp;rospy;std_msgs;geometry_msgs;nav_msgs;ardrone_autonomy;message_runtime")
+set(depends "roscpp;rospy;std_msgs;geometry_msgs;nav_msgs;ardrone_autonomy;message_runtime;ardrone_velocity_ekf")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

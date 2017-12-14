@@ -32,6 +32,7 @@
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ucl_drone/CMakeFiles/controller_custom.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ardrone_velocity/CMakeFiles/controller_tud.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/ardrone_velocity_ekf/CMakeFiles/coordinate_transform.dir
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/thesis_aurian/CMakeFiles/demo.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/robot_localization/CMakeFiles/diagnostic_msgs_generate_messages_cpp.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/robot_localization/CMakeFiles/diagnostic_msgs_generate_messages_lisp.dir
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/robot_localization/CMakeFiles/diagnostic_msgs_generate_messages_py.dir
