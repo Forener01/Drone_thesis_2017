@@ -11,6 +11,7 @@ thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ardron
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ardrone_autonomy/CamSelectRequest.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ardrone_autonomy/CamSelectResponse.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ardrone_autonomy/Navdata.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/cv_bridge/cv_bridge.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/geometry_msgs/Point.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/geometry_msgs/Pose.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/geometry_msgs/PoseWithCovariance.h
@@ -18,6 +19,15 @@ thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/geomet
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/geometry_msgs/Twist.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/geometry_msgs/TwistWithCovariance.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/geometry_msgs/Vector3.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/image_transport/camera_publisher.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/image_transport/camera_subscriber.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/image_transport/exception.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/image_transport/image_transport.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/image_transport/loader_fwds.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/image_transport/publisher.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/image_transport/single_subscriber_publisher.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/image_transport/subscriber.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/image_transport/transport_hints.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/nav_msgs/Odometry.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/advertise_options.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/advertise_service_options.h
@@ -74,10 +84,16 @@ thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/ty
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/wall_timer.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/wall_timer_options.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/rosconsole/macros_generated.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/sensor_msgs/CameraInfo.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/sensor_msgs/CompressedImage.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/sensor_msgs/Image.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/sensor_msgs/RegionOfInterest.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/sensor_msgs/image_encodings.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_msgs/Empty.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_msgs/Float32.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_msgs/Header.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_srvs/Empty.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_srvs/EmptyRequest.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_srvs/EmptyResponse.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /usr/include/opencv/cv.h
 

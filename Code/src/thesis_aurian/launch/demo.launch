@@ -9,7 +9,7 @@
 <!-- CONTROLLER -->
 <node name="demo" pkg="thesis_aurian" type="demo" output="screen">
   <param name="test_type" value="1" /> <!-- 0 without control, 1 vel control, 2 pose control-->
-  <param name="path_type" value="3" /> <!-- 0 for straightline, 1 for a square, 2 for static, 3 for left line, 4 for exit the room, 5 for final demo -->
+  <param name="path_type" value="5" /> <!-- 0 for straightline, 1 for a square, 2 for static, 3 for left line, 4 for exit the room, 5 for final demo -->
   <param name="the_speed" value="0.3" /> <!-- setting the speed (m/s) -->
   <param name="the_sleeptime" value="5.0" /> <!-- setting the sleeptime (s) -->
   <param name="the_hovertime" value="5.0" /> <!-- setting the hovertime -->
@@ -56,8 +56,11 @@
 </node>
 
 <!-- COMPUTER VISION -->
+<arg name="ns" value="ardrone/front" />
 
-
-
+<group ns="ardrone/front">
+  <node name="image_proc" pkg="image_proc" type="image_proc" output="screen" >
+  </node> 
+</group>
 
 </launch>
