@@ -58,8 +58,8 @@ OLD
     - Affiner structure pages mémoire
 
 -----------
-12h30-
-pause 45 min
+10h-
+pause 30 min
 
 # Planning
 4/12: transfert image + calibration   !!! OK !!!

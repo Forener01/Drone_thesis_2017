@@ -77,8 +77,8 @@ void PID_Control::PingCallback(const std_msgs::StringConstPtr &ping_msg) {
 void PID_Control::InputCallback(const geometry_msgs::Twist &cmd_in) {
   // reference velocity
   command = cmd_in;
-  ROS_INFO_THROTTLE(3.0, "Commands arrived in the PID controller: %f",
-                    command.linear.x);
+  ROS_INFO_THROTTLE(1.0, "Commands arrived in the PID controller: %f",
+                    command.linear.y);
 }
 
 void PID_Control::CamCallback(const geometry_msgs::PoseStamped &cam) {
@@ -98,11 +98,10 @@ void PID_Control::CamCallback(const geometry_msgs::PoseStamped &cam) {
 void PID_Control::OdoCallback(const nav_msgs::Odometry &odo_msg) {
   // measurement velocity
   odo = odo_msg;
-  ROS_INFO_THROTTLE(3.0, "Odometry arrived in the PID controller: %f",
+  ROS_INFO_THROTTLE(1.5, "Odometry arrived in the PID controller: %f",
                     odo.twist.twist.linear.x);
   vel_xy(0) = odo.twist.twist.linear.x;
   vel_xy(1) = odo.twist.twist.linear.y;
-
   pid_control(); // run PID control if new velocity is received
 }
 
@@ -258,7 +257,7 @@ void PID_Control::pid_control() {
   old_euler = euler;
   dyaw = -dyaw;
 
-  // all values are positiv
+  // all values are positive
   double yaw;
   if (euler(2) < 0)
     yaw = 2 * M_PI + euler(2);
@@ -305,7 +304,7 @@ void PID_Control::pid_control() {
   control_output_pid.linear.y = Control(0, 1) * gain_xy(0) +
                                 Control(1, 1) * gain_xy(1) +
                                 Control(2, 1) * gain_xy(2);
-  // control_output_pid.angular.z = yaw_error;
+  control_output_pid.angular.z = command.angular.z;
 
   // Based on u(k)
   control_output_pid.linear.x = std::min(

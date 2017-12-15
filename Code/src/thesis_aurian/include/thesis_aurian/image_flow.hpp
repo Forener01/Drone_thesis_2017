@@ -34,6 +34,8 @@ private:
   sensor_msgs::Image current_img, processed_img;
   sensor_msgs::ImagePtr ros_img;
 
+  ros::ServiceClient scan_img_srv;
+
   cv::Mat converted_img, redfilt_upp_img, redfilt_low_img, redfilt_dark_img1,
       redfilt_dark_img2, redfilt_lu_img, redfilt_du_img, redfilt_ldu_img,
       redfilt_img, hsv_img, gray_img, redfilt_sub, redfilt_final, hough_img,

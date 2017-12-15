@@ -3,9 +3,13 @@
 
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/pose_controller.hpp
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ardrone_velocity_ekf/include/ardrone_velocity_ekf/test_controller.hpp
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/include/thesis_aurian/demo.hpp
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/src/demo.cpp
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/XmlRpcDecl.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/XmlRpcValue.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ardrone_autonomy/CamSelect.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ardrone_autonomy/CamSelectRequest.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ardrone_autonomy/CamSelectResponse.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ardrone_autonomy/Navdata.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/geometry_msgs/Point.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/geometry_msgs/Pose.h
@@ -37,6 +41,7 @@ thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/me
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/message_traits.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/names.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/node_handle.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/package.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/param.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/parameter_adapter.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/ros/platform.h
@@ -72,4 +77,7 @@ thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/roscon
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_msgs/Empty.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_msgs/Float32.h
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_msgs/Header.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_srvs/Empty.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_srvs/EmptyRequest.h
+thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o: /opt/ros/indigo/include/std_srvs/EmptyResponse.h
 

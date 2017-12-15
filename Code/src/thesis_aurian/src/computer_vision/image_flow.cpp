@@ -1,4 +1,4 @@
-
+#include <thesis_aurian/demo.hpp>
 #include <thesis_aurian/image_flow.hpp>
 
 ImageFlow::ImageFlow() {
@@ -12,6 +12,9 @@ ImageFlow::ImageFlow() {
 
   // Publishers
   processed_image_pub = it.advertise("processed_image", 1);
+
+  // Client
+  // scan_img_srv = nh.serviceClient<ImageFlow::ScanImage>()
 
   // Image parameters
   img_width = 640;
@@ -46,6 +49,7 @@ void ImageFlow::calib_imageCb(const sensor_msgs::ImageConstPtr &msg) {
 }
 
 void ImageFlow::image_processor(const cv::Mat bgr_img) {
+  // if (scan_request) {
 
   /**********************************
    ********* COLOR FILTERING ********
@@ -313,7 +317,8 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
     space_tol = 0.92;
   }
 
-  // Set1: threshold = 101; minLength = 66; maxLineGap = 12; thickness rho deg =
+  // Set1: threshold = 101; minLength = 66; maxLineGap = 12; thickness rho deg
+  // =
   // 1
   // Set2: threshold = 71; minLength = 32; maxLineGap = 11; thickness = 4; rho
   // deg = 1
@@ -366,7 +371,6 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   // Conversion into binary image
   cvtColor(gradBGR_filt, gradGRAY_filt, COLOR_BGR2GRAY);
   cv::threshold(gradGRAY_filt, RealBinaryDoor, 100, 255, cv::THRESH_BINARY);
-  imshow("RealBinaryDoor", RealBinaryDoor);
 
   /**********************************
    ********* MATCHING STEP **********
@@ -538,11 +542,12 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
       ROS_INFO("DETECTED: Door perc %f", matchDoor_perc);
       ROS_INFO("DETECTED: Space perc %f", matchSpace_perc);
       ROS_INFO("------------------------------------");
-      //   detection_pub.publish(detected);
+      detected = true;
       break;
     }
   }
 
+  scan_result = true;
   // ROS_INFO("after: yy1 %i", yy1);
   // ROS_INFO("after: xx1 %i", xx1);
   ROS_INFO("Index %i", my_index);
@@ -564,24 +569,26 @@ void ImageFlow::image_processor(const cv::Mat bgr_img) {
   ROS_INFO("Thickness_error: %f", thickness_error);
   ROS_INFO("Door_tol: %f", door_tol);
   ROS_INFO("Space_tol: %f", space_tol);
-  //
-  imshow("Match door", doorComp * 255);
-  imshow("Match space", spaceComp * 255);
-  imshow("Ref space", RefSpace);
+
+  // imshow("RealBinaryDoor", RealBinaryDoor);
+  // imshow("Match door", doorComp * 255);
+  // imshow("Match space", spaceComp * 255);
+  // imshow("Ref space", RefSpace);
   // // imshow("Reference door rectangle", Background);
   // // imshow("Reference GRAY door rectangle", BackgroundGRAY);
-  imshow("Reference BIN door rectangle", RefBinaryDoor);
+  // imshow("Reference BIN door rectangle", RefBinaryDoor);
 
   // Sampling HSV values for the door
 
-  k = waitKey(0);
-  keypressed = true;
+  // k = waitKey(0);
+  // keypressed = true;
 }
+// }
 
 int main(int argc, char **argv) {
   ros::init(argc, argv, "image_flow");
-  ImageFlow imageflownode;
-  ros::Rate loop_rate(1);
+  ImageFlow imageflow_node;
+  ros::Rate loop_rate(16);
 
   ROS_INFO_STREAM("image_flow node started!");
 

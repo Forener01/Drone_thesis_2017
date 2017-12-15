@@ -7,22 +7,23 @@
   <arg name="freq" default="8"/>
 
   <node name="test_controller_tud_ekf" pkg="ardrone_velocity_ekf" type="test_controller_tud_ekf" output="screen">
-    <param name="test_type" value="2" /> <!-- 0 without control, 1 vel control, 2 pose control -->
-    <param name="path_type" value="0" /> <!-- 0 for straightline, 1 for a square, 2 for static, 3 for left line, 4 for exit the room -->
+    <param name="test_type" value="1" /> <!-- 0 without control, 1 vel control, 2 pose control -->
+    <param name="path_type" value="3" /> <!-- 0 for straightline, 1 for a square, 2 for static, 3 for left line, 4 for exit the room -->
     <param name="the_speed" value="0.2" /> <!-- setting the speed (m/s) -->
-    <param name="the_sleeptime" value="10.0" /> <!-- setting the sleeptime (s) -->
+    <param name="the_sleeptime" value="3.0" /> <!-- setting the sleeptime (s) -->
     <param name="the_hovertime" value="2.0" /> <!-- setting the hovertime -->
   </node>
 
+<!--
   <node name="pose_controller" pkg="ardrone_velocity_ekf" type="pose_controller" output="screen">
-  </node>
+  </node> -->
 
   <include file="$(find robot_localization)/launch/ardrone_ekf.launch"/>
 
   <node pkg="robot_localization" type="ping_node" name="ping_node" clear_params="true">
   </node>
 
-  <node pkg="ardrone_velocity_ekf" type="run_control" name="ardrone_velocity_ekf" clear_params="true">
+  <node pkg="ardrone_velocity_ekf" type="run_control" name="ardrone_velocity_ekf" output="screen" clear_params="true">
     <param name="cmd_vel_ref_topic" value="/cmd_vel_ref" />
     <param name="cmd_vel_out_topic" value="/cmd_vel" />
   </node>
