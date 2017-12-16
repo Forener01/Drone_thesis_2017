@@ -145,7 +145,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(thesis_aurian_EXPORTED_TARGETS "thesis_aurian_gencfg")
+set(thesis_aurian_EXPORTED_TARGETS "thesis_aurian_generate_messages_cpp;thesis_aurian_generate_messages_lisp;thesis_aurian_generate_messages_py;thesis_aurian_gencfg")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${thesis_aurian_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -182,7 +182,7 @@ foreach(depend ${depends})
   list(APPEND thesis_aurian_EXPORTED_TARGETS ${${thesis_aurian_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "thesis_aurian-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${thesis_aurian_DIR}/${extra})

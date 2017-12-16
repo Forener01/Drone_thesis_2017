@@ -58,8 +58,7 @@ OLD
     - Affiner structure pages mémoire
 
 -----------
-10h-
-pause 30 min
+10h30-
 
 # Planning
 4/12: transfert image + calibration   !!! OK !!!
@@ -138,7 +137,7 @@ https://docs.opencv.org/master/d2/d2c/tutorial_sobel_derivatives.html
 - Quid Blurring on the color image ?
 
 - défaillance du décollage après trop de temps d'utilisation continue (3h+) ?
-Confimé !!
+Confimé !! Ce serait plutôt chaque fois après avoir mis une nouvelle batterie.
 
 - discuter choix RGB vs HSV
 
@@ -156,6 +155,8 @@ Confimé !!
 opencv
 
 - parler de fréq scintillation néon influe sur mesures
+
+- adapter CV en vol: ajouter de la rotation du à la stabilisation horizontale imparfaite en turbulence
 
 # Matching step sources
 - Hough lines https://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/hough_lines/hough_lines.html

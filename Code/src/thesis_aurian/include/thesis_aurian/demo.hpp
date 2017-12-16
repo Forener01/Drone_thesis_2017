@@ -1,6 +1,8 @@
 #ifndef DEMO_HPP
 #define DEMO_HPP
 
+#include <thesis_aurian/reference_doors.hpp>
+
 #include <ardrone_autonomy/CamSelect.h>
 #include <ardrone_autonomy/Navdata.h>
 #include <ardrone_velocity_ekf/pose_controller.hpp>
@@ -23,6 +25,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/opencv.hpp>
+#include <sensor_msgs/Image.h>
 #include <sensor_msgs/image_encodings.h>
 #include <string>
 #include <vector>
@@ -39,8 +42,7 @@
 #define LEFTLINE 3
 #define ROOM_EXIT 4
 #define FINAL_DEMO 5
-
-bool scan_result, detected;
+#define CAM_DEMO 6
 
 class Demo {
 public:
@@ -72,6 +74,10 @@ public:
   // COMPUTER VISION
   void calib_imageCb(const sensor_msgs::ImageConstPtr &msg);
   void image_processor(const cv::Mat my_img);
+
+  image_transport::Publisher filtdoor_image_pub, realbindoor_image_pub,
+      matchdoor_image_pub;
+
   cv::Mat converted_img;
 
 private:
@@ -83,9 +89,14 @@ private:
   // COMPUTER VISION
   ros::Subscriber calib_image_sub;
 
-  image_transport::Publisher processed_image_pub;
+  cv_bridge::CvImage img_bridge;
+
+  sensor_msgs::ImagePtr filtdoor_msg, realbindoor_msg, matchdoor_msg;
+
+  std_msgs::Header header;
 
   sensor_msgs::Image current_img, processed_img;
+
   sensor_msgs::ImagePtr ros_img;
 
   ros::ServiceClient scan_img_srv;
@@ -96,17 +107,18 @@ private:
       gradBGR, gradBGR_filt, gradGRAY_filt, gradBGR_filt2, grad_canny,
       gradBGR_canny, nofilt_img, RealBinaryDoor, BackgroundGRAY, doorComp,
       InvRealBinaryDoor, spaceComp, testComp, hsv_filt, mergedDoorComp,
-      doorCompHSV, mergedDoorComp_temp, HSVDoorComp, hsv_BGRfilt, redfilt_sub2;
+      doorCompHSV, mergedDoorComp_temp, HSVDoorComp, hsv_BGRfilt, redfilt_sub2,
+      M;
 
   char k;
 
   double rho, theta, minLength, maxLineGap, door_ratio, door_thickness_ratio,
       scale_factor, res, thickness_error, door_tol, space_tol, matchDoor_perc,
-      matchSpace_perc;
+      matchSpace_perc, angle, scale;
 
   int threshold, deg, thickness, xx1, yy1, xx2, yy2, pixel_incr, img_width,
       img_height, height_zoom, door_thickness, xshifts, yshifts, init_xshift,
-      my_index, my_J_index, yy1_init, yy2_init;
+      my_index, my_J_index, yy1_init, yy2_init, i_angle;
 
   int refDoorCount, realDoorCount, matchDoorCount;
   int refSpaceCount, realSpaceCount, matchSpaceCount;
@@ -114,6 +126,8 @@ private:
   int xx1rec1, yy1rec1, xx2rec1, yy2rec1;
   int xx1rec2, yy1rec2, xx2rec2, yy2rec2;
   int xx1rec3, yy1rec3, xx2rec3, yy2rec3;
+
+  int counter;
 
   bool keypressed;
 };

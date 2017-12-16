@@ -1333,6 +1333,19 @@ uuid_msgs_generate_messages_py/fast:
 .PHONY : uuid_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named _thesis_aurian_generate_messages_check_deps_refdoors
+
+# Build rule for target.
+_thesis_aurian_generate_messages_check_deps_refdoors: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _thesis_aurian_generate_messages_check_deps_refdoors
+.PHONY : _thesis_aurian_generate_messages_check_deps_refdoors
+
+# fast build rule for target.
+_thesis_aurian_generate_messages_check_deps_refdoors/fast:
+	$(MAKE) -f thesis_aurian/CMakeFiles/_thesis_aurian_generate_messages_check_deps_refdoors.dir/build.make thesis_aurian/CMakeFiles/_thesis_aurian_generate_messages_check_deps_refdoors.dir/build
+.PHONY : _thesis_aurian_generate_messages_check_deps_refdoors/fast
+
+#=============================================================================
 # Target rules for targets named controller_2016
 
 # Build rule for target.
@@ -1409,6 +1422,97 @@ thesis_aurian_gencfg: cmake_check_build_system
 thesis_aurian_gencfg/fast:
 	$(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_gencfg.dir/build
 .PHONY : thesis_aurian_gencfg/fast
+
+#=============================================================================
+# Target rules for targets named thesis_aurian_gencpp
+
+# Build rule for target.
+thesis_aurian_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 thesis_aurian_gencpp
+.PHONY : thesis_aurian_gencpp
+
+# fast build rule for target.
+thesis_aurian_gencpp/fast:
+	$(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_gencpp.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_gencpp.dir/build
+.PHONY : thesis_aurian_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named thesis_aurian_generate_messages
+
+# Build rule for target.
+thesis_aurian_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 thesis_aurian_generate_messages
+.PHONY : thesis_aurian_generate_messages
+
+# fast build rule for target.
+thesis_aurian_generate_messages/fast:
+	$(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_generate_messages.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_generate_messages.dir/build
+.PHONY : thesis_aurian_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named thesis_aurian_generate_messages_cpp
+
+# Build rule for target.
+thesis_aurian_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 thesis_aurian_generate_messages_cpp
+.PHONY : thesis_aurian_generate_messages_cpp
+
+# fast build rule for target.
+thesis_aurian_generate_messages_cpp/fast:
+	$(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_generate_messages_cpp.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_generate_messages_cpp.dir/build
+.PHONY : thesis_aurian_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named thesis_aurian_generate_messages_lisp
+
+# Build rule for target.
+thesis_aurian_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 thesis_aurian_generate_messages_lisp
+.PHONY : thesis_aurian_generate_messages_lisp
+
+# fast build rule for target.
+thesis_aurian_generate_messages_lisp/fast:
+	$(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_generate_messages_lisp.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_generate_messages_lisp.dir/build
+.PHONY : thesis_aurian_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named thesis_aurian_generate_messages_py
+
+# Build rule for target.
+thesis_aurian_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 thesis_aurian_generate_messages_py
+.PHONY : thesis_aurian_generate_messages_py
+
+# fast build rule for target.
+thesis_aurian_generate_messages_py/fast:
+	$(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_generate_messages_py.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_generate_messages_py.dir/build
+.PHONY : thesis_aurian_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named thesis_aurian_genlisp
+
+# Build rule for target.
+thesis_aurian_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 thesis_aurian_genlisp
+.PHONY : thesis_aurian_genlisp
+
+# fast build rule for target.
+thesis_aurian_genlisp/fast:
+	$(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_genlisp.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_genlisp.dir/build
+.PHONY : thesis_aurian_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named thesis_aurian_genpy
+
+# Build rule for target.
+thesis_aurian_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 thesis_aurian_genpy
+.PHONY : thesis_aurian_genpy
+
+# fast build rule for target.
+thesis_aurian_genpy/fast:
+	$(MAKE) -f thesis_aurian/CMakeFiles/thesis_aurian_genpy.dir/build.make thesis_aurian/CMakeFiles/thesis_aurian_genpy.dir/build
+.PHONY : thesis_aurian_genpy/fast
 
 #=============================================================================
 # Target rules for targets named _ucl_drone_generate_messages_check_deps_DroneRole
@@ -2021,12 +2125,20 @@ help:
 	@echo "... uuid_msgs_generate_messages_cpp"
 	@echo "... uuid_msgs_generate_messages_lisp"
 	@echo "... uuid_msgs_generate_messages_py"
+	@echo "... _thesis_aurian_generate_messages_check_deps_refdoors"
 	@echo "... controller_2016"
 	@echo "... demo"
 	@echo "... image_flow"
 	@echo "... square_vel"
 	@echo "... test_controller"
 	@echo "... thesis_aurian_gencfg"
+	@echo "... thesis_aurian_gencpp"
+	@echo "... thesis_aurian_generate_messages"
+	@echo "... thesis_aurian_generate_messages_cpp"
+	@echo "... thesis_aurian_generate_messages_lisp"
+	@echo "... thesis_aurian_generate_messages_py"
+	@echo "... thesis_aurian_genlisp"
+	@echo "... thesis_aurian_genpy"
 	@echo "... _ucl_drone_generate_messages_check_deps_DroneRole"
 	@echo "... _ucl_drone_generate_messages_check_deps_DroneRoles"
 	@echo "... _ucl_drone_generate_messages_check_deps_KeyPoint"

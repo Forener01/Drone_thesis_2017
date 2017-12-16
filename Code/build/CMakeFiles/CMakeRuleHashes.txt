@@ -4,6 +4,7 @@
 c2c10c22b3d197d3ab17e56c0d4a45aa /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/robot_localization/SetDatum.h
 fb32719acf9309505361f5259ed0d9f9 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/robot_localization/SetPose.h
 3be8e7f6d87617086924147e2f98a11a /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/thesis_aurian/dynamic_param_configConfig.h
+87395f1e96e9fadec3e7d336dc4b35bd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/thesis_aurian/refdoors.h
 ab2ac45b91654753e7c50243acf894a8 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRole.h
 723b2f14c5d1b23716c5b8345e4d5775 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/DroneRoles.h
 e56f6d650ff2e36abee55a845f429508 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
@@ -16,6 +17,8 @@ a5b6d573776e69ef05c83f31911844f5 /home/laboinmastudent/Bureau/Drone_thesis_2017/
 ba3410dfb7fe37b26fd5e8e388800b1f /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/robot_localization/srv/_SetDatum.py
 a927998f512bb4ad4d26d314abf44955 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/robot_localization/srv/_SetPose.py
 326bb8a3403d042711ba2776549746bc /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/robot_localization/srv/__init__.py
+ed34a315e8d09c221a43f7bb95b9b908 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/thesis_aurian/msg/__init__.py
+88a409e342f2cd9903a50a5f6510109c /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/thesis_aurian/msg/_refdoors.py
 3c1fe6420daa653f829127c036e7d58a /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/ucl_drone/msg/_DroneRole.py
 46da2661ad43e648aa6e5116a1e5872b /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/ucl_drone/msg/_DroneRoles.py
 22d30190eacf10e8dc66025eb87e1a30 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/ucl_drone/msg/_KeyPoint.py
@@ -28,6 +31,7 @@ c344069b2b417d46c5e023869bac4244 /home/laboinmastudent/Bureau/Drone_thesis_2017/
 952ecfa7ba1a757fdf9c0a8c5f033bc1 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/python2.7/dist-packages/ucl_drone/msg/_cellUpdate.py
 5a3840eab41de03d8391203bd9be5f1e /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/share/common-lisp/ros/robot_localization/srv/SetDatum.lisp
 60d360dc4186c0d66a7e418b2b1722d4 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/share/common-lisp/ros/robot_localization/srv/SetPose.lisp
+78570ecdd00baaecd4ed139d55d83d30 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/share/common-lisp/ros/thesis_aurian/msg/refdoors.lisp
 7f5805b37ab23e5bee37358049352315 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/share/common-lisp/ros/ucl_drone/msg/DroneRole.lisp
 9bd158aa8306a700fc4a9373fbf81551 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/share/common-lisp/ros/ucl_drone/msg/DroneRoles.lisp
 4aa3d66785ddc97412b3894c791bcc1d /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/share/common-lisp/ros/ucl_drone/msg/KeyPoint.lisp
@@ -105,7 +109,15 @@ a743f458e4b73a0ff2ecabebe4830655 robot_localization/CMakeFiles/roslint_robot_loc
 a743f458e4b73a0ff2ecabebe4830655 robot_localization/CMakeFiles/uuid_msgs_generate_messages_cpp
 a743f458e4b73a0ff2ecabebe4830655 robot_localization/CMakeFiles/uuid_msgs_generate_messages_lisp
 a743f458e4b73a0ff2ecabebe4830655 robot_localization/CMakeFiles/uuid_msgs_generate_messages_py
+09495993b9ce5b4acfbbaf0f09fef060 thesis_aurian/CMakeFiles/_thesis_aurian_generate_messages_check_deps_refdoors
 303f26b13b8e9d73e9f5e691602799ae thesis_aurian/CMakeFiles/thesis_aurian_gencfg
+303f26b13b8e9d73e9f5e691602799ae thesis_aurian/CMakeFiles/thesis_aurian_gencpp
+303f26b13b8e9d73e9f5e691602799ae thesis_aurian/CMakeFiles/thesis_aurian_generate_messages
+303f26b13b8e9d73e9f5e691602799ae thesis_aurian/CMakeFiles/thesis_aurian_generate_messages_cpp
+303f26b13b8e9d73e9f5e691602799ae thesis_aurian/CMakeFiles/thesis_aurian_generate_messages_lisp
+303f26b13b8e9d73e9f5e691602799ae thesis_aurian/CMakeFiles/thesis_aurian_generate_messages_py
+303f26b13b8e9d73e9f5e691602799ae thesis_aurian/CMakeFiles/thesis_aurian_genlisp
+303f26b13b8e9d73e9f5e691602799ae thesis_aurian/CMakeFiles/thesis_aurian_genpy
 d87c6d2a812b1149b33997782269a136 ucl_drone/CMakeFiles/_ucl_drone_generate_messages_check_deps_DroneRole
 072cbf47027aa59805b832bbcc49a74c ucl_drone/CMakeFiles/_ucl_drone_generate_messages_check_deps_DroneRoles
 692af500631a399befbeecca86f614ec ucl_drone/CMakeFiles/_ucl_drone_generate_messages_check_deps_KeyPoint

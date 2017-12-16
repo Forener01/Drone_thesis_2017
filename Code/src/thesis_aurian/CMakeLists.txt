@@ -57,11 +57,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+  refdoors.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -78,12 +77,12 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   ardrone_autonomy
-#   geometry_msgs
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  ardrone_autonomy
+  geometry_msgs
+  std_msgs  # Or other packages containing msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -168,6 +167,7 @@ add_executable(test_controller src/controller/test_controller.cpp)
 add_executable(controller_2016 src/controller/controller_2016.cpp)
 add_executable(image_flow src/computer_vision/image_flow.cpp)
 add_executable(demo src/demo.cpp)
+# add_executable(refdoors src/computer_vision/reference_doors.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

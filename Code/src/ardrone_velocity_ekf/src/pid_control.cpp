@@ -59,7 +59,7 @@ PID_Control::PID_Control() {
   max_output(1) = 0.5;
 
   beta = 0.9;
-  gain_yaw = 0.0; // 0.4
+  gain_yaw = 0.2; // 0.4
 
   derv_filter = 0;
   derv_median = 0;

@@ -61,7 +61,7 @@ private:
   int xx1rec2, yy1rec2, xx2rec2, yy2rec2;
   int xx1rec3, yy1rec3, xx2rec3, yy2rec3;
 
-  bool keypressed;
+  bool keypressed, detected, scan_result;
 };
 
 #endif /* IMAGE_FLOW_HPP */
