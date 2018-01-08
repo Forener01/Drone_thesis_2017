@@ -30,34 +30,33 @@
 #include <sensor_msgs/image_encodings.h>
 #include <thesis_aurian/refdoors.h>
 
-class Reference_doors {
-public:
-  Reference_doors();
-  ros::NodeHandle nh;
-  ros::Publisher refdoor_pub;
+void create();
 
-  void create();
+std::vector<cv::Mat> AllDoors;
+std::vector<cv::Mat> AllSpaces;
 
-  thesis_aurian::refdoors refdoors_msg;
+thesis_aurian::refdoors refdoors_msg;
 
-private:
-  cv::Mat M, Doors;
+cv::Mat M, Doors;
 
-  char k;
+char k;
 
-  double door_ratio, door_thickness_ratio, scale_factor, thickness_error, angle,
-      scale;
+double scale_factor, thickness_error, angle, scale;
 
-  int xx1, yy1, xx2, yy2, img_width, img_height, height_zoom, door_thickness,
-      xshifts, yshifts, init_xshift, my_index, my_J_index, yy1_init, yy2_init,
-      i_angle;
+int xx1, yy1, xx2, yy2, height_zoom, door_thickness, xshifts, yshifts,
+    init_xshift, my_index, my_J_index, yy1_init, yy2_init, i_angle;
 
-  int xx1rec1, yy1rec1, xx2rec1, yy2rec1;
-  int xx1rec2, yy1rec2, xx2rec2, yy2rec2;
-  int xx1rec3, yy1rec3, xx2rec3, yy2rec3;
+int xx1rec1, yy1rec1, xx2rec1, yy2rec1;
+int xx1rec2, yy1rec2, xx2rec2, yy2rec2;
+int xx1rec3, yy1rec3, xx2rec3, yy2rec3;
 
-  int counter;
+// Image parameters
+int img_width = 640;
+int img_height = 360;
+double door_ratio = 0.425;           // --> W/H = 93.2/201 = real world
+                                     // --> W/H = 104/253 = cam world
+double door_thickness_ratio = 0.015; // --> T/H = 3/201
 
-  bool keypressed;
-};
+// }
+
 #endif // REFERENCE_DOORS_HPP

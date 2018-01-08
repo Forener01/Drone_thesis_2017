@@ -502,34 +502,6 @@ ucl_drone/CMakeFiles/computer_vision.dir/src/computer_vision/computer_vision.cpp
  /usr/include/vtk-5.8/vtkstd/string
  /usr/include/vtk-5.8/vtkstd/utility
  /usr/include/vtk-5.8/vtkstd/vector
- /usr/local/include/opencv2/calib3d/calib3d.hpp
- /usr/local/include/opencv2/core/core.hpp
- /usr/local/include/opencv2/core/core_c.h
- /usr/local/include/opencv2/core/cuda_devptrs.hpp
- /usr/local/include/opencv2/core/gpumat.hpp
- /usr/local/include/opencv2/core/mat.hpp
- /usr/local/include/opencv2/core/operations.hpp
- /usr/local/include/opencv2/core/types_c.h
- /usr/local/include/opencv2/core/version.hpp
- /usr/local/include/opencv2/features2d/features2d.hpp
- /usr/local/include/opencv2/flann/config.h
- /usr/local/include/opencv2/flann/defines.h
- /usr/local/include/opencv2/flann/miniflann.hpp
- /usr/local/include/opencv2/gpu/gpu.hpp
- /usr/local/include/opencv2/highgui/highgui.hpp
- /usr/local/include/opencv2/highgui/highgui_c.h
- /usr/local/include/opencv2/imgproc/imgproc.hpp
- /usr/local/include/opencv2/imgproc/types_c.h
- /usr/local/include/opencv2/ml/ml.hpp
- /usr/local/include/opencv2/nonfree/features2d.hpp
- /usr/local/include/opencv2/nonfree/gpu.hpp
- /usr/local/include/opencv2/nonfree/nonfree.hpp
- /usr/local/include/opencv2/nonfree/ocl.hpp
- /usr/local/include/opencv2/objdetect/objdetect.hpp
- /usr/local/include/opencv2/ocl/matrix_operations.hpp
- /usr/local/include/opencv2/ocl/ocl.hpp
- /usr/local/include/opencv2/opencv_modules.hpp
- /usr/local/include/opencv2/video/tracking.hpp
 ucl_drone/CMakeFiles/computer_vision.dir/src/computer_vision/processed_image.cpp.o
  /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
  /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
@@ -1031,34 +1003,6 @@ ucl_drone/CMakeFiles/computer_vision.dir/src/computer_vision/processed_image.cpp
  /usr/include/vtk-5.8/vtkstd/string
  /usr/include/vtk-5.8/vtkstd/utility
  /usr/include/vtk-5.8/vtkstd/vector
- /usr/local/include/opencv2/calib3d/calib3d.hpp
- /usr/local/include/opencv2/core/core.hpp
- /usr/local/include/opencv2/core/core_c.h
- /usr/local/include/opencv2/core/cuda_devptrs.hpp
- /usr/local/include/opencv2/core/gpumat.hpp
- /usr/local/include/opencv2/core/mat.hpp
- /usr/local/include/opencv2/core/operations.hpp
- /usr/local/include/opencv2/core/types_c.h
- /usr/local/include/opencv2/core/version.hpp
- /usr/local/include/opencv2/features2d/features2d.hpp
- /usr/local/include/opencv2/flann/config.h
- /usr/local/include/opencv2/flann/defines.h
- /usr/local/include/opencv2/flann/miniflann.hpp
- /usr/local/include/opencv2/gpu/gpu.hpp
- /usr/local/include/opencv2/highgui/highgui.hpp
- /usr/local/include/opencv2/highgui/highgui_c.h
- /usr/local/include/opencv2/imgproc/imgproc.hpp
- /usr/local/include/opencv2/imgproc/types_c.h
- /usr/local/include/opencv2/ml/ml.hpp
- /usr/local/include/opencv2/nonfree/features2d.hpp
- /usr/local/include/opencv2/nonfree/gpu.hpp
- /usr/local/include/opencv2/nonfree/nonfree.hpp
- /usr/local/include/opencv2/nonfree/ocl.hpp
- /usr/local/include/opencv2/objdetect/objdetect.hpp
- /usr/local/include/opencv2/ocl/matrix_operations.hpp
- /usr/local/include/opencv2/ocl/ocl.hpp
- /usr/local/include/opencv2/opencv_modules.hpp
- /usr/local/include/opencv2/video/tracking.hpp
 ucl_drone/CMakeFiles/computer_vision.dir/src/computer_vision/target.cpp.o
  /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
  /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
@@ -1560,34 +1504,6 @@ ucl_drone/CMakeFiles/computer_vision.dir/src/computer_vision/target.cpp.o
  /usr/include/vtk-5.8/vtkstd/string
  /usr/include/vtk-5.8/vtkstd/utility
  /usr/include/vtk-5.8/vtkstd/vector
- /usr/local/include/opencv2/calib3d/calib3d.hpp
- /usr/local/include/opencv2/core/core.hpp
- /usr/local/include/opencv2/core/core_c.h
- /usr/local/include/opencv2/core/cuda_devptrs.hpp
- /usr/local/include/opencv2/core/gpumat.hpp
- /usr/local/include/opencv2/core/mat.hpp
- /usr/local/include/opencv2/core/operations.hpp
- /usr/local/include/opencv2/core/types_c.h
- /usr/local/include/opencv2/core/version.hpp
- /usr/local/include/opencv2/features2d/features2d.hpp
- /usr/local/include/opencv2/flann/config.h
- /usr/local/include/opencv2/flann/defines.h
- /usr/local/include/opencv2/flann/miniflann.hpp
- /usr/local/include/opencv2/gpu/gpu.hpp
- /usr/local/include/opencv2/highgui/highgui.hpp
- /usr/local/include/opencv2/highgui/highgui_c.h
- /usr/local/include/opencv2/imgproc/imgproc.hpp
- /usr/local/include/opencv2/imgproc/types_c.h
- /usr/local/include/opencv2/ml/ml.hpp
- /usr/local/include/opencv2/nonfree/features2d.hpp
- /usr/local/include/opencv2/nonfree/gpu.hpp
- /usr/local/include/opencv2/nonfree/nonfree.hpp
- /usr/local/include/opencv2/nonfree/ocl.hpp
- /usr/local/include/opencv2/objdetect/objdetect.hpp
- /usr/local/include/opencv2/ocl/matrix_operations.hpp
- /usr/local/include/opencv2/ocl/ocl.hpp
- /usr/local/include/opencv2/opencv_modules.hpp
- /usr/local/include/opencv2/video/tracking.hpp
 ucl_drone/CMakeFiles/computer_vision.dir/src/map/projection_2D.cpp.o
  /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
  /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
@@ -2064,21 +1980,6 @@ ucl_drone/CMakeFiles/computer_vision.dir/src/map/projection_2D.cpp.o
  /usr/include/vtk-5.8/vtkstd/string
  /usr/include/vtk-5.8/vtkstd/utility
  /usr/include/vtk-5.8/vtkstd/vector
- /usr/local/include/opencv2/calib3d/calib3d.hpp
- /usr/local/include/opencv2/core/core.hpp
- /usr/local/include/opencv2/core/core_c.h
- /usr/local/include/opencv2/core/mat.hpp
- /usr/local/include/opencv2/core/operations.hpp
- /usr/local/include/opencv2/core/types_c.h
- /usr/local/include/opencv2/core/version.hpp
- /usr/local/include/opencv2/features2d/features2d.hpp
- /usr/local/include/opencv2/flann/config.h
- /usr/local/include/opencv2/flann/defines.h
- /usr/local/include/opencv2/flann/miniflann.hpp
- /usr/local/include/opencv2/imgproc/imgproc.hpp
- /usr/local/include/opencv2/imgproc/types_c.h
- /usr/local/include/opencv2/nonfree/features2d.hpp
- /usr/local/include/opencv2/nonfree/nonfree.hpp
 ucl_drone/CMakeFiles/computer_vision.dir/src/opencv_utils.cpp.o
  /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/PointXYZRGBSIFT.h
  /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/opencv_utils.h

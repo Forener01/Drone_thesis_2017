@@ -481,21 +481,6 @@ ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/include/vt
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/include/vtk-5.8/vtkstd/string
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/include/vtk-5.8/vtkstd/utility
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/include/vtk-5.8/vtkstd/vector
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/calib3d/calib3d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/core/core.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/core/core_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/core/mat.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/core/operations.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/core/types_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/core/version.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/features2d/features2d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/flann/config.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/flann/defines.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/flann/miniflann.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/imgproc/imgproc.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/imgproc/types_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/nonfree/features2d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/frame.cpp.o: /usr/local/include/opencv2/nonfree/nonfree.hpp
 
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
@@ -977,21 +962,6 @@ ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/include
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/include/vtk-5.8/vtkstd/string
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/include/vtk-5.8/vtkstd/utility
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/include/vtk-5.8/vtkstd/vector
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/calib3d/calib3d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/core/core.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/core/core_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/core/mat.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/core/operations.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/core/types_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/core/version.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/features2d/features2d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/flann/config.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/flann/defines.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/flann/miniflann.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/imgproc/imgproc.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/imgproc/types_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/nonfree/features2d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/keyframe.cpp.o: /usr/local/include/opencv2/nonfree/nonfree.hpp
 
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
@@ -1473,21 +1443,6 @@ ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /u
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/include/vtk-5.8/vtkstd/string
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/include/vtk-5.8/vtkstd/utility
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/include/vtk-5.8/vtkstd/vector
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/calib3d/calib3d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/core/core.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/core/core_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/core/mat.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/core/operations.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/core/types_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/core/version.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/features2d/features2d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/flann/config.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/flann/defines.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/flann/miniflann.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/imgproc/imgproc.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/imgproc/types_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/nonfree/features2d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/map_keyframe_based.cpp.o: /usr/local/include/opencv2/nonfree/nonfree.hpp
 
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/KeyPoint.h
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/include/ucl_drone/Pose3D.h
@@ -1964,21 +1919,6 @@ ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/in
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/include/vtk-5.8/vtkstd/string
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/include/vtk-5.8/vtkstd/utility
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/include/vtk-5.8/vtkstd/vector
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/calib3d/calib3d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/core/core.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/core/core_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/core/mat.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/core/operations.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/core/types_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/core/version.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/features2d/features2d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/flann/config.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/flann/defines.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/flann/miniflann.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/imgproc/imgproc.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/imgproc/types_c.h
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/nonfree/features2d.hpp
-ucl_drone/CMakeFiles/map_keyframe_based.dir/src/map/projection_2D.cpp.o: /usr/local/include/opencv2/nonfree/nonfree.hpp
 
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/opencv_utils.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/PointXYZRGBSIFT.h
 ucl_drone/CMakeFiles/map_keyframe_based.dir/src/opencv_utils.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/ucl_drone/include/ucl_drone/opencv_utils.h

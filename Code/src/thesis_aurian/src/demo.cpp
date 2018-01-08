@@ -11,8 +11,10 @@ Demo::Demo() {
   ros::param::get("~the_sleeptime", sleeptime);
 
   // Subscribers
-  calib_image_sub = nh.subscribe("ardrone/front/image_rect_color", 1,
-                                 &Demo::calib_imageCb, this);
+  // calib_image_sub = nh.subscribe("ardrone/front/image_rect_color", 1,
+  //                                &Demo::calib_imageCb, this);
+
+  // refdoor_sub = nh.subscribe("reference_doors", 1, &Demo::refdoorsCb, this);
 
   // Publishers
   takeoff_pub = nh.advertise<std_msgs::Empty>("ardrone/takeoff", 1);
@@ -61,11 +63,11 @@ Demo::Demo() {
   scan_request = false;
 
   // Image parameters
-  img_width = 640;
-  img_height = 360;
-  door_ratio = 0.425;           // --> W/H = 93.2/201 = real world
-                                // --> W/H = 104/253 = cam world
-  door_thickness_ratio = 0.015; // --> T/H = 3/201
+  // img_width = 640;
+  // img_height = 360;
+  // door_ratio = 0.425;           // --> W/H = 93.2/201 = real world
+  //                               // --> W/H = 104/253 = cam world
+  // door_thickness_ratio = 0.015; // --> T/H = 3/201
   keypressed = false;
 
   // Hough Transform parameters
@@ -91,6 +93,12 @@ void Demo::calib_imageCb(const sensor_msgs::ImageConstPtr &msg) {
     image_processor(converted_img);
   }
 }
+
+// void Demo::refdoorsCb(const thesis_aurian::refdoors msg) {
+//   // std::vector<int>::const_iterator RefBinaryDoor = msg.data;
+//
+//   imshow("RefBinaryDoor", mySharedmatrix);
+// }
 
 void Demo::image_processor(const cv::Mat bgr_img) {
   // if (scan_request) {
@@ -666,6 +674,13 @@ void Demo::image_processor(const cv::Mat bgr_img) {
   ROS_INFO("------------------------------------");
   ROS_INFO("------------------------------------");
   ROS_INFO("------------------------------------");
+
+  /** IMPLEMENTATION ONE SHOT */
+  refDoorCount = sum(RefBinaryDoor)[0] / 255;
+  realDoorCount = sum(RealBinaryDoor)[0] / 255;
+  multiply(RealBinaryDoor / 255, RefBinaryDoor / 255, doorComp);
+  matchDoorCount = sum(doorComp)[0];
+  matchDoor_perc = (double)matchDoorCount / (double)refDoorCount;
 }
 // }
 
@@ -1023,7 +1038,20 @@ void Demo::test() {
     }
 
     else if (path_type == CAM_DEMO) {
-      scan_request = true;
+      //   scan_request = true;
+      //   Reference_doors::Reference_doors myrefdoor;
+      create_binmasks();
+      ROS_INFO("Printing matrices 1!");
+
+      //   ROS_INFO("Printing matrices 2!");
+      //   MyOpenSpace = myrefdoor.AllSpaces[41];
+      //   ROS_INFO("Printing matrices 3!");
+
+      //   ROS_INFO("Printing matrices 4!");
+      //   cv::imshow("OpenSpace DEMO", MyOpenSpace);
+      //   ROS_INFO("Printing matrices 5!");
+      cv::waitKey(0);
+      //   ROS_INFO("Printing matrices 6!");
     }
   }
 
@@ -1145,6 +1173,110 @@ void Demo::finish(void) {
   ros::Duration(3.0).sleep();
 }
 
+void Demo::create_binmasks() {
+
+  using namespace cv;
+  using namespace std;
+
+  Mat RefBinaryDoor(360, 640, CV_8UC1, Scalar(0));
+  Mat RefSpace(360, 640, CV_8UC1, Scalar(0));
+
+  std::vector<cv::Mat> RefDoorsList;
+  std::vector<cv::Mat> RefSpacesList;
+
+  scale_factor = 1; // Out: 0.714; // 1 = door takes the full height
+  height_zoom = scale_factor * img_height;
+  door_thickness = door_thickness_ratio * height_zoom * thickness_error;
+  init_xshift = 140 - (door_ratio * height_zoom / 2 + 3 * door_thickness);
+  xshifts = 2 * init_xshift;
+  yshifts = 5;
+
+  xx1 = img_width / 2 - door_ratio * height_zoom / 2 - door_thickness / 2 - 1 +
+        init_xshift;
+  yy1 = img_height + door_thickness / 2;
+  yy1_init = yy1;
+  xx2 = img_width / 2 + door_ratio * height_zoom / 2 + door_thickness / 2 - 1 +
+        init_xshift;
+  yy2 = yy1 - height_zoom - door_thickness / 2;
+  yy2_init = yy2;
+
+  // Coordinates for lateral space
+  xx1rec1 = xx2 + door_thickness / 2;
+  xx2rec1 = xx1rec1 + 2 * door_thickness;
+  yy1rec1 = yy1 - door_thickness / 2;
+  yy2rec1 = yy2 - 5 * door_thickness / 2;
+
+  // Coordinates for superior space
+  xx1rec2 = xx1 + door_thickness / 2;
+  xx2rec2 = xx2 + door_thickness / 2;
+  yy1rec2 = yy2 - door_thickness / 2;
+  yy2rec2 = yy1rec2 - 2 * door_thickness;
+
+  // Coordinates for interior space
+  xx1rec3 = xx1 + door_thickness / 2;
+  xx2rec3 = xx2 - door_thickness / 2;
+  yy1rec3 = yy1 + door_thickness / 2;
+  yy2rec3 = yy1rec3 - 0.1866 * height_zoom;
+
+  // Rotation
+  scale = 1.0;
+
+  //  Matching decision
+  for (my_index = 0; my_index < xshifts; my_index++) {
+    xx1 -= 1;
+    xx2 -= 1;
+    yy1 = yy1_init;
+    yy2 = yy2_init;
+    // Coordinates for lateral space
+    xx1rec1 = xx2 + door_thickness / 2;
+    xx2rec1 = xx1rec1 + 2 * door_thickness;
+    yy1rec1 = yy1 - door_thickness / 2;
+    yy2rec1 = yy2 - 5 * door_thickness / 2;
+
+    // Coordinates for superior space
+    xx1rec2 = xx1 + door_thickness / 2;
+    xx2rec2 = xx2 + door_thickness / 2;
+    yy1rec2 = yy2 - door_thickness / 2;
+    yy2rec2 = yy1rec2 - 2 * door_thickness;
+
+    // Coordinates for interior space
+    xx1rec3 = xx1 + door_thickness / 2;
+    xx2rec3 = xx2 - door_thickness / 2;
+    yy1rec3 = yy1 + door_thickness / 2;
+    yy2rec3 = yy1rec3 - 0.1866 * height_zoom;
+
+    for (my_J_index = 0; my_J_index < yshifts; my_J_index++) {
+      yy1 -= 1;
+      yy2 -= 1;
+
+      for (i_angle = -5; i_angle < 6; i_angle++) {
+        angle = (double)i_angle;
+        M = getRotationMatrix2D(Point(320, 180), angle, 1.0);
+
+        // Door creation
+        RefBinaryDoor.operator=(Scalar(0)); // Draw a new shifted reference
+        rectangle(RefBinaryDoor, Point(xx1, yy1), Point(xx2, yy2), Scalar(255),
+                  door_thickness, 8);
+        line(RefBinaryDoor, Point(xx1, yy1), Point(xx2, yy1), Scalar(0),
+             door_thickness, 8);
+        warpAffine(RefBinaryDoor, RefBinaryDoor, M, RefBinaryDoor.size());
+        RefDoorsList.push_back(RefBinaryDoor);
+
+        // Open space creation
+        RefSpace.operator=(Scalar(0));
+        rectangle(RefSpace, Point(xx1rec1, yy1rec1), Point(xx2rec1, yy2rec1),
+                  Scalar(255), CV_FILLED, 8);
+        rectangle(RefSpace, Point(xx1rec2, yy1rec2), Point(xx2rec2, yy2rec2),
+                  Scalar(255), CV_FILLED, 8);
+        rectangle(RefSpace, Point(xx1rec3, yy1rec3), Point(xx2rec3, yy2rec3),
+                  Scalar(255), CV_FILLED, 8);
+        warpAffine(RefSpace, RefSpace, M, RefBinaryDoor.size());
+        RefSpacesList.push_back(RefSpace);
+      }
+    }
+  }
+}
+
 int main(int argc, char **argv) {
   ros::init(argc, argv, "Demo_node");
   ros::NodeHandle nh;
@@ -1153,8 +1285,8 @@ int main(int argc, char **argv) {
   ros::Rate loop_rate(100);
 
   /*** Waiting time to connect to ARDrone camera ***/
-  ros::Duration(7.0).sleep();
-  ROS_INFO_STREAM_ONCE("Demo_node started !");
+  ros::Duration(20.0).sleep();
+  // ROS_INFO_STREAM_ONCE("Demo_node started !");
 
   // /*** INITIALIZATION ***/
   // mytest.init();

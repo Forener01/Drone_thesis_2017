@@ -1,8 +1,6 @@
 #ifndef DEMO_HPP
 #define DEMO_HPP
 
-#include <thesis_aurian/reference_doors.hpp>
-
 #include <ardrone_autonomy/CamSelect.h>
 #include <ardrone_autonomy/Navdata.h>
 #include <ardrone_velocity_ekf/pose_controller.hpp>
@@ -73,7 +71,9 @@ public:
 
   // COMPUTER VISION
   void calib_imageCb(const sensor_msgs::ImageConstPtr &msg);
+  // void refdoorsCb(const thesis_aurian::refdoors msg);
   void image_processor(const cv::Mat my_img);
+  void create_binmasks();
 
   image_transport::Publisher filtdoor_image_pub, realbindoor_image_pub,
       matchdoor_image_pub;
@@ -87,7 +87,7 @@ private:
   double speed, hovertime, sleeptime;
 
   // COMPUTER VISION
-  ros::Subscriber calib_image_sub;
+  ros::Subscriber calib_image_sub, refdoor_sub;
 
   cv_bridge::CvImage img_bridge;
 
@@ -108,7 +108,7 @@ private:
       gradBGR_canny, nofilt_img, RealBinaryDoor, BackgroundGRAY, doorComp,
       InvRealBinaryDoor, spaceComp, testComp, hsv_filt, mergedDoorComp,
       doorCompHSV, mergedDoorComp_temp, HSVDoorComp, hsv_BGRfilt, redfilt_sub2,
-      M;
+      M, RefBinaryDoor, MyDoor, MyOpenSpace;
 
   char k;
 

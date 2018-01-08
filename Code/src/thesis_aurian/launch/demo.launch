@@ -66,8 +66,8 @@
 <remap from="image" to="ardrone/front/image_rect_color" />
 </node>
 
-<!-- <node name="reference doors" pkg="thesis_aurian" type="refdoors" respawn="false" output="screen">
-</node> -->
+<node name="reference_doors" pkg="thesis_aurian" type="refdoors" respawn="false" output="screen">
+</node>
 
 
 <node name="image_view_filt" pkg="image_view" type="image_view" respawn="false" output="screen">
@@ -78,11 +78,11 @@
 <remap from="image" to="realbindoor_image" />
 </node>
 
-<node name="image_view_match" pkg="image_view" type="image_view" respawn="false" output="screen">
+<node name="image_view_match_door" pkg="image_view" type="image_view" respawn="false" output="screen">
 <remap from="image" to="matchdoor_image" />
 </node>
 
-<node name="image_view_match" pkg="image_view" type="image_view" respawn="false" output="screen">
+<node name="image_view_match_space" pkg="image_view" type="image_view" respawn="false" output="screen">
 <remap from="image" to="matchspace_image" />
 </node>
 

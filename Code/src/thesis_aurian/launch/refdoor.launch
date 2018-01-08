@@ -1,0 +1,6 @@
+<launch>
+
+<node name="reference_doors" pkg="thesis_aurian" type="refdoors" respawn="false" output="screen">
+</node>
+
+</launch>

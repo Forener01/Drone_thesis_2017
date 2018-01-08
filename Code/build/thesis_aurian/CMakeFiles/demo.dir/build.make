@@ -72,14 +72,39 @@ thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o.provides: thesis_aurian/CMakeFi
 
 thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o.provides.build: thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o
 
+thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o: thesis_aurian/CMakeFiles/demo.dir/flags.make
+thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o: /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/src/computer_vision/reference_doors.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o"
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/thesis_aurian && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o -c /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/src/computer_vision/reference_doors.cpp
+
+thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.i"
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/thesis_aurian && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/src/computer_vision/reference_doors.cpp > CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.i
+
+thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.s"
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build/thesis_aurian && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/src/thesis_aurian/src/computer_vision/reference_doors.cpp -o CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.s
+
+thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o.requires:
+.PHONY : thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o.requires
+
+thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o.provides: thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o.requires
+	$(MAKE) -f thesis_aurian/CMakeFiles/demo.dir/build.make thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o.provides.build
+.PHONY : thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o.provides
+
+thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o.provides.build: thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o
+
 # Object files for target demo
 demo_OBJECTS = \
-"CMakeFiles/demo.dir/src/demo.cpp.o"
+"CMakeFiles/demo.dir/src/demo.cpp.o" \
+"CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o"
 
 # External object files for target demo
 demo_EXTERNAL_OBJECTS =
 
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/thesis_aurian/demo: thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o
+/home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/thesis_aurian/demo: thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/thesis_aurian/demo: thesis_aurian/CMakeFiles/demo.dir/build.make
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/thesis_aurian/demo: /opt/ros/indigo/lib/libtf.so
 /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/devel/lib/thesis_aurian/demo: /opt/ros/indigo/lib/libtf2_ros.so
@@ -142,6 +167,7 @@ thesis_aurian/CMakeFiles/demo.dir/build: /home/laboinmastudent/Bureau/Drone_thes
 .PHONY : thesis_aurian/CMakeFiles/demo.dir/build
 
 thesis_aurian/CMakeFiles/demo.dir/requires: thesis_aurian/CMakeFiles/demo.dir/src/demo.cpp.o.requires
+thesis_aurian/CMakeFiles/demo.dir/requires: thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o.requires
 .PHONY : thesis_aurian/CMakeFiles/demo.dir/requires
 
 thesis_aurian/CMakeFiles/demo.dir/clean:

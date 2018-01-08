@@ -166,7 +166,7 @@ add_executable(square_vel src/controller/square_vel.cpp)
 add_executable(test_controller src/controller/test_controller.cpp)
 add_executable(controller_2016 src/controller/controller_2016.cpp)
 add_executable(image_flow src/computer_vision/image_flow.cpp)
-add_executable(demo src/demo.cpp)
+add_executable(demo src/demo.cpp src/computer_vision/reference_doors.cpp)
 # add_executable(refdoors src/computer_vision/reference_doors.cpp)
 
 ## Rename C++ executable without prefix
@@ -194,6 +194,7 @@ target_link_libraries(test_controller ${catkin_LIBRARIES})
 target_link_libraries(controller_2016 ${catkin_LIBRARIES})
 target_link_libraries(image_flow ${catkin_LIBRARIES})
 target_link_libraries(demo ${catkin_LIBRARIES})
+# target_link_libraries(refdoors ${catkin_LIBRARIES})
 
 #############
 ## Install ##

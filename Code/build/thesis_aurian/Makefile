@@ -369,6 +369,30 @@ src/computer_vision/image_flow.cpp.s:
 	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/image_flow.dir/build.make thesis_aurian/CMakeFiles/image_flow.dir/src/computer_vision/image_flow.cpp.s
 .PHONY : src/computer_vision/image_flow.cpp.s
 
+src/computer_vision/reference_doors.o: src/computer_vision/reference_doors.cpp.o
+.PHONY : src/computer_vision/reference_doors.o
+
+# target to build an object file
+src/computer_vision/reference_doors.cpp.o:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/demo.dir/build.make thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.o
+.PHONY : src/computer_vision/reference_doors.cpp.o
+
+src/computer_vision/reference_doors.i: src/computer_vision/reference_doors.cpp.i
+.PHONY : src/computer_vision/reference_doors.i
+
+# target to preprocess a source file
+src/computer_vision/reference_doors.cpp.i:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/demo.dir/build.make thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.i
+.PHONY : src/computer_vision/reference_doors.cpp.i
+
+src/computer_vision/reference_doors.s: src/computer_vision/reference_doors.cpp.s
+.PHONY : src/computer_vision/reference_doors.s
+
+# target to generate assembly for a file
+src/computer_vision/reference_doors.cpp.s:
+	cd /home/laboinmastudent/Bureau/Drone_thesis_2017/Code/build && $(MAKE) -f thesis_aurian/CMakeFiles/demo.dir/build.make thesis_aurian/CMakeFiles/demo.dir/src/computer_vision/reference_doors.cpp.s
+.PHONY : src/computer_vision/reference_doors.cpp.s
+
 src/controller/controller_2016.o: src/controller/controller_2016.cpp.o
 .PHONY : src/controller/controller_2016.o
 
@@ -495,6 +519,9 @@ help:
 	@echo "... src/computer_vision/image_flow.o"
 	@echo "... src/computer_vision/image_flow.i"
 	@echo "... src/computer_vision/image_flow.s"
+	@echo "... src/computer_vision/reference_doors.o"
+	@echo "... src/computer_vision/reference_doors.i"
+	@echo "... src/computer_vision/reference_doors.s"
 	@echo "... src/controller/controller_2016.o"
 	@echo "... src/controller/controller_2016.i"
 	@echo "... src/controller/controller_2016.s"
